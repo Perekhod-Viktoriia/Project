@@ -1,0 +1,104 @@
+.active
+{
+    color: blue !important;
+}
+*{
+    font: 14px Tahoma, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.purchases{
+    max-width: 300px;
+    border: 1px solid #d7d7d7;
+}
+.purchases ul{
+    list-style: none;
+}
+.purchases li{
+    border-bottom: 1px dashed lightgrey;
+    color: #3A3A3A;
+    padding: 5px 15px;
+}
+.purchases li:last-child{
+    border: 0;
+}
+.purchases ul #sum{
+    border-top: 1px solid #dbdbdb;
+    font-weight: bold;
+}
+.purchases .title {
+    background-color: #b2fbb8;
+    border-bottom: 1px solid #dbdbdb;
+    color: #777;
+    font-size: 1.15em;
+    padding: 5px 10px;
+    text-shadow: 0 1px 0 white;
+}
+
+.task_table{
+    border: 1px solid #dbdbdb;
+    border-spacing: 0;
+    margin-bottom: 20px;
+    width:100%;
+}
+.task_table thead tr th{
+     border-bottom: 1px solid #dbdbdb !important;
+}
+.task_table thead tr{
+    background-color: #efefef;
+    color: #777;
+    font-size: 1.15em;
+    padding: 5px 10px;
+    text-shadow: 0 1px 0 white;
+}
+.task_table tr > *{
+    border-bottom: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+    padding: 5px;
+}
+.task_table tr > *:last-child{
+    border-right: 0;
+}
+.task_table tr:last-child > *{
+    border-bottom: 0;
+}
+.task_table tbody tr:nth-child(even){
+    background-color: #f7f7f7;
+} 
+.task_table tbody tr td:first-child{
+    text-align: center;
+}
+.made{
+    text-decoration: line-through;
+}
+
+.btn{
+    width: calc(100% - 6px);
+    background-color: #b2fbb8;
+    border: solid 1px #bcbcbc;
+    font: 13px Tahoma,Helvetica;
+    color: #666;
+    cursor: pointer;
+    padding: 4px 8px!important;
+    margin: 6px 3px;
+    transition: all .2s;
+}
+.btn:hover{
+    background-color: #efefef;
+}
+@media (min-width: 769px){
+    body{
+        padding: 20px;
+    }
+    .mobile{
+        display: none;
+    }
+}
+@media (max-width: 768px){
+    .desktop{
+        display: none;
+    }
+     body{
+        padding: 5px;
+    }
+}
