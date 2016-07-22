@@ -1,3 +1,8 @@
+/*1. `beforeBegin` -- перед `elem`.
+2. `afterBegin` -- внутрь `elem`, в самое начало.
+3. `beforeEnd` -- внутрь `elem`, в конец.
+4. `afterEnd` -- после `elem`.*/
+(function () {
 'use strict';
 var items = document.getElementById('items');
 
@@ -10,59 +15,51 @@ var btnSelectNext = document.getElementById("next_btn");
 var btnSelectPrevious = document.getElementById("previous_btn");
 
 
+
+
 btnCreate.addEventListener('click', function () {
-    //Create new el
-    var newEl = document.createElement('li');
-    newEl.innerHTML = "NEW";
-    //last children
-    items.appendChild(newEl);
+    
+    items.insertAdjacentHTML ('beforeEnd', "<li>NEW</li>")
 });
 
-
 btnDel.addEventListener('click', function () {
+    
     items.removeChild(items.lastElementChild);
 });
 
 btnTTop.addEventListener('click', function () {
-    var newEl = document.createElement('li');
-    newEl.innerHTML = "NEW";
-    items.insertBefore (newEl,items.firstElementChild);
+    
+     items.insertAdjacentHTML ('afterBegin', "<li>NEW</li>")  
 });
 
- btnSelectFirst.addEventListener('click', function (){
+btnSelectFirst.addEventListener('click', function (){ 
+    
+     /* Является такая запись говнокодом? */
      delActive();
-     var firstChild = items.firstElementChild;
-     //add class
-     firstChild.classList.add('active');
-  
+     items.firstElementChild.className.add('active');
 });
 
 function delActive () {
-    var activeNow = document.getElementsByClassName('active');
-    if (activeNow[0])
-        {
-            activeNow[0].classList.remove('active');
-        }
+    
+    items.classList.contains('avtive').remove('avtive');
 };
 
- btnSelectLast.addEventListener('click', function (){
-     delActive();
-     var lastChild = items.lastElementChild;
-     //add class
-     lastChild.classList.add('active');
-  
+btnSelectLast.addEventListener('click', function (){
+    
+     items.lastElementChild.className.add('avtive');
 });
 
 btnSelectNext.addEventListener('click', function () {
-    var children = items.children;
+    
+     var children = items.children;
     for (var key in children)
         {
             if ( children[key].classList.contains('active'))
                 {
-                    if(key == children.length-1)
+                    if(key == 0)
                         {
                             children[key].classList.remove('active'); 
-                            children[0].classList.add('active');
+                            children[children.length+1].classList.add('active');
                             break;
                         }
                     children[key].classList.remove('active');   
@@ -73,6 +70,7 @@ btnSelectNext.addEventListener('click', function () {
 });
 
 btnSelectPrevious.addEventListener('click', function () {
+    
     var children = items.children;
     for (var key in children)
         {
@@ -90,6 +88,7 @@ btnSelectPrevious.addEventListener('click', function () {
                 }       
         }
 });
+} () );
 
 /*
 var btnPrevious =  document.getElementById('previous_btn');
